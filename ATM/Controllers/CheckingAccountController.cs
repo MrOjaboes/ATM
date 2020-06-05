@@ -20,7 +20,7 @@ namespace ATM.Controllers
             return View(checkingAccount.Transactions.ToList());
         }
 
-        //[Authorize(Roles ="Admin")]
+        [Authorize(Roles ="Admin")]
         public ActionResult List()
         {
             var accounts = db.CheckingAccounts.ToList();
@@ -29,7 +29,7 @@ namespace ATM.Controllers
 
         // GET: CheckingAccount/Details/5
         
-        public ActionResult AccountDetails()
+        public ActionResult AccountDetails(int CheckingAccountId)
         {
             var UserId = User.Identity.GetUserId();
             var checkingAccountId = db.CheckingAccounts.Where(c => c.ApplicationUserId == UserId).First();
@@ -38,7 +38,7 @@ namespace ATM.Controllers
             return View();
         }
 
-       // [Authorize(Roles = "Admin")]
+       [Authorize(Roles = "Admin")]
         public ActionResult Details(int id)
         {
             
