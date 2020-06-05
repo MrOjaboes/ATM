@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Account";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+
+
+<div class="row">
+    <div class="col-md-6" style="margin-top:20px;">
+        <a href="@Url.Action("Withdrawal","Transaction", new{ checkingAccountId = ViewBag.CheckingAccountId})" class="btn btn-primary btn-block btn-lg"><span class="glyphicon glyphicon-circle-arrow-down"></span>  Withdrawal</a>
+        <a href="~/" class="btn btn-primary btn-block btn-lg"><span class="glyphicon glyphicon-flash"></span>  Quick Cash $100</a>
+        <a href="@Url.Action("AccounDetails","CheckingAccount")" class="btn btn-primary btn-block btn-lg"><span class="glyphicon glyphicon-question-sign"></span>  Balance Inquiry</a>
+
+    </div>
+
+    <div class="col-md-6" style="margin-top:20px;">
+        <a href="@Url.Action("Statement","CheckingAccount", new{ id = ViewBag.CheckingAccountId})" class="btn btn-primary btn-block btn-lg"><span class="glyphicon glyphicon-print"></span>  Print Statement</a>
+        <a href="@Url.Action("Transfer","Transaction", new{ checkingAccountId = ViewBag.CheckingAccountId})" class="btn btn-primary btn-block btn-lg"><span class="glyphicon glyphicon-transfer"></span>  Transfer Funds</a>
+        <a href="@Url.Action("Deposit","Transaction", new{ checkingAccountId = ViewBag.CheckingAccountId})" class="btn btn-primary btn-block btn-lg"><span class="glyphicon glyphicon-circle-arrow-up"></span>  Deposit</a>
+
+    </div>
+</div>

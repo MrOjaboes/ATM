@@ -1,0 +1,25 @@
+﻿@model ATM.Models.TransferViewModel
+
+@{
+    ViewBag.Title = "Transfer";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<h2>Transfer Funds</h2>
+@Html.Partial("_TransferForm")
+@section Scripts{
+    <script>
+        $(document).on('submit', 'transferForm', function () {
+            var $theForm = $(this);
+            if ($theForm.Valid()) {
+                $('#progress').show();
+                $.post('', $theForm.serialize())
+                    .done(function (response){
+                    $theForm.replaceWith(response);
+                }
+            }
+            return false;
+        })
+    </script>
+    
+    }
